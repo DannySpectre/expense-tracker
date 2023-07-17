@@ -27,14 +27,20 @@ export default function SignUp() {
     <div className="flex flex-col items-center justify-center">
       <div className="grid max-w-sm max-h-20 mt-4 item`s-center gap-1.5">
         <Label htmlFor="email">Email</Label>
-        <Input className="rounded" type="email" id="email" placeholder="" onChange={(e)=> setEmail(e.target.value)} />
+        <Input
+          className="rounded"
+          type="email"
+          id="email"
+          placeholder=""
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <Label htmlFor="Password">Password</Label>
         <Input
           className="rounded"
           type="password"
           id="password"
           placeholder=""
-          onChange={(e)=> setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="flex justify-center">
           <Button onClick={signUpWithEmail}>Sign Up</Button>
