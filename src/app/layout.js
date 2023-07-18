@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Financial Calendar',
-  description: 'Expense tracker with a twist! A calendar view to see your financial status',
+  title: 'FinCal',
+  description: 'Plan your finances, achieve your goals',
 }
 
 export default function RootLayout({ children }) {
