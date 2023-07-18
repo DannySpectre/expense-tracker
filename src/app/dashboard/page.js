@@ -14,7 +14,15 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ug from "date-fns/esm/locale/ug/index";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export default function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,8 +44,6 @@ export default function Dashboard() {
     };
     getUser();
   }, []);
-
-
 
   const addNewIncome = async () => {
     try {
@@ -81,12 +87,17 @@ export default function Dashboard() {
     }
   };
 
+  const resetFeilds = () => {
+    setAmount("");
+    setDescription("");
+  };
+
   return (
     <div>
       {isAuthenticated && (
         <>
           <div className="flex justify-center items-center mt-6">
-            <h1 className="text-3xl font-bold">
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
               Welcome to your Financial Calendar
             </h1>
           </div>
@@ -102,8 +113,12 @@ export default function Dashboard() {
             </div>
             <Tabs defaultValue="Income" className="w-[400px]">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="Income">Income</TabsTrigger>
-                <TabsTrigger value="Expense">Expense</TabsTrigger>
+                <TabsTrigger value="Income" onClick={resetFeilds}>
+                  Income
+                </TabsTrigger>
+                <TabsTrigger value="Expense" onClick={resetFeilds}>
+                  Expense
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="Income">
                 <Card>
@@ -116,7 +131,7 @@ export default function Dashboard() {
                       <Label htmlFor="ammount">Amount</Label>
                       <Input
                         id="income_amount"
-                        type="number"
+                        type="Item"
                         onChange={(e) => setAmount(e.target.value)}
                       />
                     </div>
@@ -169,11 +184,53 @@ export default function Dashboard() {
               <CardHeader>
                 <CardTitle>Income</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">Income item list</CardContent>
+              <CardContent className="space-y-2">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[100px]">Item</TableHead>
+                      <TableHead>Description</TableHead>
+                      <TableHead className="text-right">Amount</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">
+                          1
+                        </TableCell>
+                        <TableCell>Description</TableCell>
+                        <TableCell className="text-right">
+                          $0.00
+                        </TableCell>
+                      </TableRow>
+                  </TableBody>
+                </Table>
+              </CardContent>
               <CardHeader>
                 <CardTitle>Expenses</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">Expense item list</CardContent>
+              <CardContent className="space-y-2">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[100px]">Item</TableHead>
+                      <TableHead>Description</TableHead>
+                      <TableHead className="text-right">Amount</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      <TableRow>
+                        <TableCell className="font-medium">
+                          1
+                        </TableCell>
+                        <TableCell>Description</TableCell>
+                        <TableCell className="text-right">
+                          $0.00
+                        </TableCell>
+                      </TableRow>
+                  </TableBody>
+                </Table>
+              </CardContent>
             </Card>
           </div>
         </>
