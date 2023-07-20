@@ -27,7 +27,7 @@ import {
 export default function Dashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  //declare inputvariables for form fields
+  //declare input variables for form fields
   const [userId, setUserId] = useState();
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState();
@@ -87,7 +87,7 @@ export default function Dashboard() {
     }
   };
 
-  const resetFeilds = () => {
+  const resetFields = () => {
     setAmount("");
     setDescription("");
   };
@@ -113,10 +113,10 @@ export default function Dashboard() {
             </div>
             <Tabs defaultValue="Income" className="w-[400px]">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="Income" onClick={resetFeilds}>
+                <TabsTrigger value="Income" onClick={resetFields}>
                   Income
                 </TabsTrigger>
-                <TabsTrigger value="Expense" onClick={resetFeilds}>
+                <TabsTrigger value="Expense" onClick={resetFields}>
                   Expense
                 </TabsTrigger>
               </TabsList>
@@ -128,7 +128,7 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <div className="space-y-1">
-                      <Label htmlFor="ammount">Amount</Label>
+                      <Label htmlFor="amount">Amount</Label>
                       <Input
                         id="income_amount"
                         type="Item"
@@ -153,12 +153,12 @@ export default function Dashboard() {
                   <CardHeader>
                     <CardTitle>Expense</CardTitle>
                     <CardDescription>
-                      Add any expenses incourred.
+                      Add any expenses incurred.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <div className="space-y-1">
-                      <Label htmlFor="ammount">Amount</Label>
+                      <Label htmlFor="amount">Amount</Label>
                       <Input
                         id="expense_amount"
                         onChange={(e) => setAmount(e.target.value)}
